@@ -87,9 +87,11 @@ namespace Mars.NeuroNet
 
                     if (!File.Exists(path)) // если файла синаптических весов нет
                     {
-                        MessageBox.Show("Внимание!\nФайл " + nameLayer + "_memory.csv синаптических весов не найден." +
-                            "\nПосле нажатия кнопки ОК автоматически создастся отсутствующий файл, и все значения весов будут сохранены в нём.",
-                            "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(
+                            "Файл весов не найден.\nБудут созданы новые веса.",
+                            "Файлы весов",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
                     }
 
                     for (int i = 0; i < numOfNeurons; i++)
@@ -104,10 +106,11 @@ namespace Mars.NeuroNet
                     break;
 
                 case MemoryMode.INIT:
-                    MessageBox.Show("Внимание!\nФайл " + nameLayer + "_memory.csv синаптических весов не найден." +
-                            "\nПосле нажатия кнопки ОК автоматически проинициализируются веса и создастся отсутствующий файл, " +
-                            "нейросеть вернётся к исходному состоянию <<новорождённости>>, и потребуется обучать её заново.",
-                            "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(
+                        "Файл весов не найден.\nСозданы новые веса. Требуется обучение сети.",
+                        "Файлы весов",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
 
                     Random random = new Random(); // генератор случайных чисел
 

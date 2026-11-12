@@ -7,5 +7,4 @@ C:\Users\marka\Source\Repos\Mars\obj\Debug\Mars.csproj.GenerateResource.cache
 C:\Users\marka\Source\Repos\Mars\obj\Debug\Mars.csproj.CoreCompileInputs.cache
 C:\Users\marka\Source\Repos\Mars\obj\Debug\Mars.exe
 C:\Users\marka\Source\Repos\Mars\obj\Debug\Mars.pdb
-C:\Users\marka\Source\Repos\Mars\obj\Debug\Mars.exe.config
 C:\Users\marka\Source\Repos\Mars\obj\Debug\Mars.FormMain.resources

@@ -104,10 +104,28 @@ namespace Mars
         // обработчик события клика кнопки "обучить"
         private void buttonTraining_Click(object sender, EventArgs e)
         {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "train.txt";
+
+            // проверка наличия обучающей выборки
+            if (!File.Exists(path))
+            {
+                MessageBox.Show(
+                    "Файл train.txt не найден.\nСначала добавьте обучающие примеры.",
+                    "Обучение",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            // запуск обучения
             network.Train(network);
 
-            MessageBox.Show("Обучение успешно завершено.", "Информация",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(
+                "Обучение успешно завершено.",
+                "Обучение",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
     }
 }

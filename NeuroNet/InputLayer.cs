@@ -8,6 +8,7 @@ namespace Mars.NeuroNet
         // поля
         private double[,] trainSet; // 100 изображений в обучающей выборке
         private double[,] testSet; // 10 изображений в тестовой выборке
+        private static readonly Random random = new Random(); // генератор случайных чисел
 
         // свойства 
         public double[,] TrainSet { get => trainSet; }
@@ -53,7 +54,25 @@ namespace Mars.NeuroNet
         // перетасовка строк массива методом Фишера-Йетса (Fisher-Yates)
         public void ShufflingArrayRows(double[,] arr)
         {
+            int rows = arr.GetLength(0); // количество строк
+            int cols = arr.GetLength(1); // количество столбцов
+
+            double[] temp = new double[cols]; // временная строка
             int j; // номер случайно выбранной строки
+
+            // перебор строк в обратном порядке
+            for (int i = rows - 1; i > 0; i--)
+            {
+                j = random.Next(i + 1); // случайный индекс от 0 до i
+
+                // обмен строк i и j
+                for (int k = 0; k < cols; k++)
+                {
+                    temp[k] = arr[i, k];
+                    arr[i, k] = arr[j, k];
+                    arr[j, k] = temp[k];
+                }
+            }
         }
     }
 }
