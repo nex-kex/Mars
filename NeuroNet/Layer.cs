@@ -75,7 +75,7 @@ namespace Mars.NeuroNet
                     for (int i = 0; i < numOfNeurons; i++)
                     {
                         memory_element = tmpStrWeights[i].Split(delim); // разбить строку на элементы
-                        for (int j = 0; j < numOfPrevNeurons; j++)
+                        for (int j = 0; j < numOfPrevNeurons + 1; j++)
                         {
                             weights[i, j] = double.Parse(memory_element[j].Replace(',', '.'),
                                 System.Globalization.CultureInfo.InvariantCulture); // строковое преобразиование
@@ -87,7 +87,7 @@ namespace Mars.NeuroNet
 
                     if (!File.Exists(path)) // если файла синаптических весов нет
                     {
-                        MessageBox.Show("!!! В Н И М А Н И Е !!!\nФайл " + nameLayer + "_memory.csv синаптических весов НЕ НАЙДЕН!!!" +
+                        MessageBox.Show("Внимание!\nФайл " + nameLayer + "_memory.csv синаптических весов не найден." +
                             "\nПосле нажатия кнопки ОК автоматически создастся отсутствующий файл, и все значения весов будут сохранены в нём.",
                             "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
@@ -95,10 +95,8 @@ namespace Mars.NeuroNet
                     for (int i = 0; i < numOfNeurons; i++)
                     {
                         tmpStr = neurons[i].Weights[0].ToString(); // порог - первое значение строки
-                        for (int j = 0; j< numOfPrevNeurons; j++)
-                        {
+                        for (int j = 1; j < numOfPrevNeurons + 1; j++)
                             tmpStr += delim[0] + neurons[i].Weights[j].ToString();
-                        }
                         tmpStrWeights[i] = tmpStr;
                     }
                     File.WriteAllLines(path, tmpStrWeights);
@@ -106,9 +104,9 @@ namespace Mars.NeuroNet
                     break;
 
                 case MemoryMode.INIT:
-                    MessageBox.Show("!!! В Н И М А Н И Е !!!\nФайл " + nameLayer + "_memory.csv синаптических весов НЕ НАЙДЕН!!!" +
+                    MessageBox.Show("Внимание!\nФайл " + nameLayer + "_memory.csv синаптических весов не найден." +
                             "\nПосле нажатия кнопки ОК автоматически проинициализируются веса и создастся отсутствующий файл, " +
-                            "нейросеть вернётся к исходному состоянию <<новорождённости>>, и потребуется обучать её ЗАНОВО.",
+                            "нейросеть вернётся к исходному состоянию <<новорождённости>>, и потребуется обучать её заново.",
                             "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     Random random = new Random(); // генератор случайных чисел

@@ -33,7 +33,7 @@ namespace Mars.NeuroNet
 
             // цикл коррекции синаптических весов
             for (int i = 0; i < numOfNeurons; i++)
-                for (int n = 0; n < numOfNeurons + 1; n++)
+                for (int n = 0; n < numOfPrevNeurons + 1; n++)
                 {
                     double delta_w;
                     if (n == 0) // если порог

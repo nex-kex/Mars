@@ -24,7 +24,7 @@
             {
                 double sum = 0;
                 for (int k = 0; k < numOfNeurons; k++)
-                    sum += neurons[k].Weights[j + 1] * neurons[k].Derivative * gr_sum[k]; // через градиентные суммы и производную
+                    sum += neurons[k].Weights[j + 1] * neurons[k].Derivative * gr_sums[k]; // через градиентные суммы и производную
 
                 gr_sum[j] = sum;
             }
