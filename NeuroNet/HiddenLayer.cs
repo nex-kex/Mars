@@ -36,10 +36,10 @@
                     double delta_w;
                     if (n == 0) // если порог
                         delta_w = momentum * lastDeltaWeights[i, 0] + 
-                            learningRate * neurons[i].Derivative * gr_sum[i];
+                            learningRate * neurons[i].Derivative * gr_sums[i];
                     else
                         delta_w = momentum * lastDeltaWeights[i, n] + 
-                            learningRate * neurons[i].Inputs[n - 1] * neurons[i].Derivative * gr_sum[i];
+                            learningRate * neurons[i].Inputs[n - 1] * neurons[i].Derivative * gr_sums[i];
 
                     lastDeltaWeights[i, n] = delta_w;
                     neurons[i].Weights[n] += delta_w; // коррекция весов
