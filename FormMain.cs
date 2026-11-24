@@ -130,5 +130,17 @@ namespace Mars
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
         }
+
+        // обработчик события клика кнопки "тестировать"
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+            network.Test();
+
+            for (int i = 0; i < network.E_error_avr.Length; i++)
+                chartAvgError.Series[0].Points.AddY(network.E_error_avr[i]);
+
+            MessageBox.Show("Тестирование успешно завершено.", "Информация",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

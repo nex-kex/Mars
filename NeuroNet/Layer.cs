@@ -13,8 +13,8 @@ namespace Mars.NeuroNet
         protected int numOfNeurons;     // число нейронов слоя
         protected int numOfPrevNeurons; // число нейронов прошлого слоя
         protected Neuron[] neurons;     // массив нейронов
-        protected const double learningRate = 0.05; // скорость обучения
-        protected const double momentum = 0.5;      // момент
+        protected const double learningRate = 0.15; // скорость обучения
+        protected const double momentum = 0.1;      // момент
         protected double[,] lastDeltaWeights;       // веса
 
         // Свойства

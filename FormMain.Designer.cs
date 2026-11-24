@@ -57,6 +57,7 @@
             this.Probability = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonTraining = new System.Windows.Forms.Button();
             this.chartAvgError = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.buttonTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnswer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartAvgError)).BeginInit();
@@ -282,7 +283,7 @@
             this.textBoxResult.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxResult.Location = new System.Drawing.Point(213, 46);
+            this.textBoxResult.Location = new System.Drawing.Point(213, 11);
             this.textBoxResult.Name = "textBoxResult";
             this.textBoxResult.ReadOnly = true;
             this.textBoxResult.Size = new System.Drawing.Size(260, 56);
@@ -310,7 +311,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewResults.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewResults.Location = new System.Drawing.Point(213, 101);
+            this.dataGridViewResults.Location = new System.Drawing.Point(213, 66);
             this.dataGridViewResults.Name = "dataGridViewResults";
             this.dataGridViewResults.ReadOnly = true;
             this.dataGridViewResults.RowHeadersVisible = false;
@@ -338,9 +339,9 @@
             this.buttonTraining.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonTraining.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTraining.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonTraining.Location = new System.Drawing.Point(213, 408);
+            this.buttonTraining.Location = new System.Drawing.Point(213, 372);
             this.buttonTraining.Name = "buttonTraining";
-            this.buttonTraining.Size = new System.Drawing.Size(260, 60);
+            this.buttonTraining.Size = new System.Drawing.Size(260, 45);
             this.buttonTraining.TabIndex = 23;
             this.buttonTraining.Text = "Обучить";
             this.buttonTraining.UseVisualStyleBackColor = false;
@@ -366,11 +367,24 @@
             title1.Text = "График средних энергий ошибок";
             this.chartAvgError.Titles.Add(title1);
             // 
+            // buttonTest
+            // 
+            this.buttonTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonTest.Location = new System.Drawing.Point(213, 423);
+            this.buttonTest.Name = "buttonTest";
+            this.buttonTest.Size = new System.Drawing.Size(260, 45);
+            this.buttonTest.TabIndex = 26;
+            this.buttonTest.Text = "Тестировать";
+            this.buttonTest.UseVisualStyleBackColor = true;
+            this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 777);
+            this.Controls.Add(this.buttonTest);
             this.Controls.Add(this.chartAvgError);
             this.Controls.Add(this.buttonTraining);
             this.Controls.Add(this.dataGridViewResults);
@@ -431,6 +445,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Probability;
         private System.Windows.Forms.Button buttonTraining;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartAvgError;
+        private System.Windows.Forms.Button buttonTest;
     }
 }
 
