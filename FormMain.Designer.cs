@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pixel1 = new System.Windows.Forms.Button();
             this.pixel2 = new System.Windows.Forms.Button();
             this.pixel3 = new System.Windows.Forms.Button();
@@ -53,15 +56,17 @@
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Probability = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonTraining = new System.Windows.Forms.Button();
+            this.chartAvgError = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnswer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartAvgError)).BeginInit();
             this.SuspendLayout();
             // 
             // pixel1
             // 
             this.pixel1.BackColor = System.Drawing.Color.White;
             this.pixel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel1.Location = new System.Drawing.Point(8, 11);
+            this.pixel1.Location = new System.Drawing.Point(12, 11);
             this.pixel1.Name = "pixel1";
             this.pixel1.Size = new System.Drawing.Size(60, 60);
             this.pixel1.TabIndex = 0;
@@ -72,7 +77,7 @@
             // 
             this.pixel2.BackColor = System.Drawing.Color.White;
             this.pixel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel2.Location = new System.Drawing.Point(74, 11);
+            this.pixel2.Location = new System.Drawing.Point(78, 11);
             this.pixel2.Name = "pixel2";
             this.pixel2.Size = new System.Drawing.Size(60, 60);
             this.pixel2.TabIndex = 1;
@@ -83,7 +88,7 @@
             // 
             this.pixel3.BackColor = System.Drawing.Color.White;
             this.pixel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel3.Location = new System.Drawing.Point(140, 11);
+            this.pixel3.Location = new System.Drawing.Point(144, 11);
             this.pixel3.Name = "pixel3";
             this.pixel3.Size = new System.Drawing.Size(60, 60);
             this.pixel3.TabIndex = 2;
@@ -94,7 +99,7 @@
             // 
             this.pixel6.BackColor = System.Drawing.Color.White;
             this.pixel6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel6.Location = new System.Drawing.Point(140, 77);
+            this.pixel6.Location = new System.Drawing.Point(144, 77);
             this.pixel6.Name = "pixel6";
             this.pixel6.Size = new System.Drawing.Size(60, 60);
             this.pixel6.TabIndex = 5;
@@ -105,7 +110,7 @@
             // 
             this.pixel5.BackColor = System.Drawing.Color.White;
             this.pixel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel5.Location = new System.Drawing.Point(74, 77);
+            this.pixel5.Location = new System.Drawing.Point(78, 77);
             this.pixel5.Name = "pixel5";
             this.pixel5.Size = new System.Drawing.Size(60, 60);
             this.pixel5.TabIndex = 4;
@@ -116,7 +121,7 @@
             // 
             this.pixel4.BackColor = System.Drawing.Color.White;
             this.pixel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel4.Location = new System.Drawing.Point(8, 77);
+            this.pixel4.Location = new System.Drawing.Point(12, 77);
             this.pixel4.Name = "pixel4";
             this.pixel4.Size = new System.Drawing.Size(60, 60);
             this.pixel4.TabIndex = 3;
@@ -127,7 +132,7 @@
             // 
             this.pixel9.BackColor = System.Drawing.Color.White;
             this.pixel9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel9.Location = new System.Drawing.Point(140, 143);
+            this.pixel9.Location = new System.Drawing.Point(144, 143);
             this.pixel9.Name = "pixel9";
             this.pixel9.Size = new System.Drawing.Size(60, 60);
             this.pixel9.TabIndex = 8;
@@ -138,7 +143,7 @@
             // 
             this.pixel8.BackColor = System.Drawing.Color.White;
             this.pixel8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel8.Location = new System.Drawing.Point(74, 143);
+            this.pixel8.Location = new System.Drawing.Point(78, 143);
             this.pixel8.Name = "pixel8";
             this.pixel8.Size = new System.Drawing.Size(60, 60);
             this.pixel8.TabIndex = 7;
@@ -149,7 +154,7 @@
             // 
             this.pixel7.BackColor = System.Drawing.Color.White;
             this.pixel7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel7.Location = new System.Drawing.Point(8, 143);
+            this.pixel7.Location = new System.Drawing.Point(12, 143);
             this.pixel7.Name = "pixel7";
             this.pixel7.Size = new System.Drawing.Size(60, 60);
             this.pixel7.TabIndex = 6;
@@ -160,7 +165,7 @@
             // 
             this.pixel12.BackColor = System.Drawing.Color.White;
             this.pixel12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel12.Location = new System.Drawing.Point(140, 209);
+            this.pixel12.Location = new System.Drawing.Point(144, 209);
             this.pixel12.Name = "pixel12";
             this.pixel12.Size = new System.Drawing.Size(60, 60);
             this.pixel12.TabIndex = 11;
@@ -171,7 +176,7 @@
             // 
             this.pixel11.BackColor = System.Drawing.Color.White;
             this.pixel11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel11.Location = new System.Drawing.Point(74, 209);
+            this.pixel11.Location = new System.Drawing.Point(78, 209);
             this.pixel11.Name = "pixel11";
             this.pixel11.Size = new System.Drawing.Size(60, 60);
             this.pixel11.TabIndex = 10;
@@ -182,7 +187,7 @@
             // 
             this.pixel10.BackColor = System.Drawing.Color.White;
             this.pixel10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel10.Location = new System.Drawing.Point(8, 209);
+            this.pixel10.Location = new System.Drawing.Point(12, 209);
             this.pixel10.Name = "pixel10";
             this.pixel10.Size = new System.Drawing.Size(60, 60);
             this.pixel10.TabIndex = 9;
@@ -193,7 +198,7 @@
             // 
             this.pixel15.BackColor = System.Drawing.Color.White;
             this.pixel15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel15.Location = new System.Drawing.Point(140, 275);
+            this.pixel15.Location = new System.Drawing.Point(144, 275);
             this.pixel15.Name = "pixel15";
             this.pixel15.Size = new System.Drawing.Size(60, 60);
             this.pixel15.TabIndex = 14;
@@ -204,7 +209,7 @@
             // 
             this.pixel14.BackColor = System.Drawing.Color.White;
             this.pixel14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel14.Location = new System.Drawing.Point(74, 275);
+            this.pixel14.Location = new System.Drawing.Point(78, 275);
             this.pixel14.Name = "pixel14";
             this.pixel14.Size = new System.Drawing.Size(60, 60);
             this.pixel14.TabIndex = 13;
@@ -215,7 +220,7 @@
             // 
             this.pixel13.BackColor = System.Drawing.Color.White;
             this.pixel13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pixel13.Location = new System.Drawing.Point(8, 275);
+            this.pixel13.Location = new System.Drawing.Point(12, 275);
             this.pixel13.Name = "pixel13";
             this.pixel13.Size = new System.Drawing.Size(60, 60);
             this.pixel13.TabIndex = 12;
@@ -226,8 +231,8 @@
             // 
             this.buttonRecognize.BackColor = System.Drawing.Color.Turquoise;
             this.buttonRecognize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRecognize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRecognize.Location = new System.Drawing.Point(8, 341);
+            this.buttonRecognize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRecognize.Location = new System.Drawing.Point(12, 341);
             this.buttonRecognize.Name = "buttonRecognize";
             this.buttonRecognize.Size = new System.Drawing.Size(192, 60);
             this.buttonRecognize.TabIndex = 15;
@@ -239,7 +244,7 @@
             // 
             this.buttonSaveTest.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonSaveTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveTest.Location = new System.Drawing.Point(8, 407);
+            this.buttonSaveTest.Location = new System.Drawing.Point(12, 408);
             this.buttonSaveTest.Name = "buttonSaveTest";
             this.buttonSaveTest.Size = new System.Drawing.Size(94, 60);
             this.buttonSaveTest.TabIndex = 16;
@@ -251,7 +256,7 @@
             // 
             this.buttonSaveTraining.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonSaveTraining.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveTraining.Location = new System.Drawing.Point(106, 407);
+            this.buttonSaveTraining.Location = new System.Drawing.Point(110, 408);
             this.buttonSaveTraining.Name = "buttonSaveTraining";
             this.buttonSaveTraining.Size = new System.Drawing.Size(94, 32);
             this.buttonSaveTraining.TabIndex = 17;
@@ -261,7 +266,7 @@
             // 
             // numericUpDownAnswer
             // 
-            this.numericUpDownAnswer.Location = new System.Drawing.Point(106, 445);
+            this.numericUpDownAnswer.Location = new System.Drawing.Point(110, 446);
             this.numericUpDownAnswer.Maximum = new decimal(new int[] {
             9,
             0,
@@ -277,7 +282,7 @@
             this.textBoxResult.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxResult.Location = new System.Drawing.Point(222, 12);
+            this.textBoxResult.Location = new System.Drawing.Point(213, 46);
             this.textBoxResult.Name = "textBoxResult";
             this.textBoxResult.ReadOnly = true;
             this.textBoxResult.Size = new System.Drawing.Size(260, 56);
@@ -297,15 +302,15 @@
             this.dataGridViewResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Number,
             this.Probability});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewResults.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewResults.Location = new System.Drawing.Point(222, 67);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewResults.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewResults.Location = new System.Drawing.Point(213, 101);
             this.dataGridViewResults.Name = "dataGridViewResults";
             this.dataGridViewResults.ReadOnly = true;
             this.dataGridViewResults.RowHeadersVisible = false;
@@ -330,19 +335,43 @@
             // 
             // buttonTraining
             // 
-            this.buttonTraining.Location = new System.Drawing.Point(222, 373);
+            this.buttonTraining.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonTraining.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTraining.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonTraining.Location = new System.Drawing.Point(213, 408);
             this.buttonTraining.Name = "buttonTraining";
-            this.buttonTraining.Size = new System.Drawing.Size(127, 60);
+            this.buttonTraining.Size = new System.Drawing.Size(260, 60);
             this.buttonTraining.TabIndex = 23;
             this.buttonTraining.Text = "Обучить";
-            this.buttonTraining.UseVisualStyleBackColor = true;
+            this.buttonTraining.UseVisualStyleBackColor = false;
             this.buttonTraining.Click += new System.EventHandler(this.buttonTraining_Click);
+            // 
+            // chartAvgError
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartAvgError.ChartAreas.Add(chartArea1);
+            this.chartAvgError.Location = new System.Drawing.Point(12, 475);
+            this.chartAvgError.Name = "chartAvgError";
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.DarkCyan;
+            series1.Legend = "Legend2";
+            series1.Name = "Series1";
+            this.chartAvgError.Series.Add(series1);
+            this.chartAvgError.Size = new System.Drawing.Size(461, 289);
+            this.chartAvgError.TabIndex = 25;
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title1.Name = "Title1";
+            title1.Text = "График средних энергий ошибок";
+            this.chartAvgError.Titles.Add(title1);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 477);
+            this.ClientSize = new System.Drawing.Size(487, 777);
+            this.Controls.Add(this.chartAvgError);
             this.Controls.Add(this.buttonTraining);
             this.Controls.Add(this.dataGridViewResults);
             this.Controls.Add(this.textBoxResult);
@@ -369,6 +398,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAnswer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartAvgError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,6 +430,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Probability;
         private System.Windows.Forms.Button buttonTraining;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartAvgError;
     }
 }
 

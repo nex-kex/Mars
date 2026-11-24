@@ -121,6 +121,9 @@ namespace Mars
             // запуск обучения
             network.Train(network);
 
+            for (int i = 0; i < network.E_error_avr.Length; i++)
+                chartAvgError.Series[0].Points.AddY(network.E_error_avr[i]);
+
             MessageBox.Show(
                 "Обучение успешно завершено.",
                 "Обучение",
