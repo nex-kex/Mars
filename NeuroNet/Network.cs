@@ -34,7 +34,7 @@
         {
             input_layer = new InputLayer(NetworkMode.Train); // инициализация входного слоя для формирования множества обучающих образов
 
-            int epoches = 10;     // количество эпох обучения
+            int epoches = 100;     // количество эпох обучения
             double tmpSumError;   // временная переменная сумма ошибки
             double[] errors;      // вектор (массив) сигнала ошибки выходного слоя
             double[] temp_gsums1; // вектор градиента 1-го скрытого слоя
@@ -83,6 +83,50 @@
             hidden_layer1.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
             hidden_layer2.WeightInitialize(MemoryMode.SET, nameof(hidden_layer2) + "_memory.csv");
             output_layer.WeightInitialize(MemoryMode.SET, nameof(output_layer) + "_memory.csv");
+        }
+
+        // тестирование сети
+        public void Test()
+        {
+            input_layer = new InputLayer(NetworkMode.Test); // инициализация входного слоя
+
+            int epoches = 3;      // количество эпох тестирования
+            double tmpSumError;   // временная переменная сумма ошибки
+            double[] errors;      // вектор (массив) сигнала ошибки выходного слоя
+
+            e_error_avr = new double[epoches];
+
+            for (int k = 0; k < epoches; k++) // перебор эпох тестирования
+            {
+                e_error_avr[k] = 0; // в начале каждой эпохи обучения значение средней энергии ошибки эпохи обнуляется
+                input_layer.ShufflingArrayRows(input_layer.TestSet); // перетасовка тестовой выборки
+                for (int i = 0; i < input_layer.TestSet.GetLength(0); i++) // цикл перебора тестовых примеров (образов)
+                {
+                    double[] tmpTest = new double[15]; // обучающий образ
+                    for (int j = 0; j < tmpTest.Length; j++)
+                        tmpTest[j] = input_layer.TestSet[i, j + 1];
+
+                    // прямой проход тестового образа
+                    ForwardPass(tmpTest);
+
+                    // вычисление ошибки по итерации
+                    tmpSumError = 0; // для каждого тестового образа среднее значение ошибки этого образа обнуляется
+                    errors = new double[fact.Length]; // переопределение массива сигнала ошибки выходного слоя
+                    for (int x = 0; x < errors.Length; x++)
+                    {
+                        if (x == input_layer.TestSet[i, 0]) // если номер выходного нейрона совпадает с желаемым откликом
+                            errors[x] = 1.0 - fact[x];
+                        else
+                            errors[x] = -fact[x]; // errors[x] = 0.0 - net.fact[x];
+
+                        tmpSumError += errors[x] * errors[x] / 2;
+                    }
+                    e_error_avr[k] += tmpSumError / errors.Length; // суммарное значение энергии ошибки k-ой эпохи
+                }
+                e_error_avr[k] /= input_layer.TestSet.GetLength(0); // среднее значение энергии ошибки одной эпохи
+            }
+
+            input_layer = null; // обнуление (уборка) входного слоя
         }
     }
 }
